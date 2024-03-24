@@ -4,7 +4,7 @@
         {
             "label": "Test",
             "type": "shell",
-            "command": "tsc; node public/generator.js",
+            "command": "tsc; node test.js",
             "problemMatcher": []
         }
     ]
