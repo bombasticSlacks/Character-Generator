@@ -4,7 +4,7 @@
         {
             "label": "Test",
             "type": "shell",
-            "command": "tsc --resolveJsonModule --esModuleInterop --moduleResolution node16 --module node16 --target es6 ./generator.ts; node ./generator.js",
+            "command": "tsc; node public/generator.js",
             "problemMatcher": []
         }
     ]

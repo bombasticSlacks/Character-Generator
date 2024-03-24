@@ -120,7 +120,7 @@ export default class CharacterGenerator {
 
   // Create A Culture
   generateCulture(): Culture {
-    return Culture.Kaar;
+    return Culture.Prole;
   }
 
   // Create Pronouns
@@ -173,6 +173,3 @@ export default class CharacterGenerator {
     return getRandom(Quirk.Entries);
   }
 }
-
-const generator = new CharacterGenerator();
-console.log(generator.generate({ culture: Culture.Prole }));
