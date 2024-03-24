@@ -1,8 +1,8 @@
 // Generates A Collection Of Information To Represent A Character
-import Prole from "./data/Prole.json";
-import Demeanor from "./data/Demeanor.json";
-import Goal from "./data/Goal.json";
-import Quirk from "./data/Quirk.json";
+import { Prole } from "./data/Prole.js";
+import { Demeanor } from "./data/Demeanor.js";
+import { Goals } from "./data/Goal.js";
+import { Quirks } from "./data/Quirk.js";
 
 interface CultureData {
   He: { chance: number; firstNames: string[]; secondNames: string[] };
@@ -165,11 +165,11 @@ export default class CharacterGenerator {
 
   // Create A Goal
   generateGoal(): string {
-    return getRandom(Goal.Entries);
+    return getRandom(Goals.Entries);
   }
 
   // Create A Quirk
   generateQuirk(): string {
-    return getRandom(Quirk.Entries);
+    return getRandom(Quirks.Entries);
   }
 }

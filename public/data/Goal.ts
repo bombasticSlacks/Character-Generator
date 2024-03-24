@@ -1,5 +1,5 @@
-{
-  "Entries": [
+export const Goals = {
+  Entries: [
     "Fix problems no matter the cost.",
     "Defend their allies.",
     "Maintain order.",

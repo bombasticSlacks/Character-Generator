@@ -1,7 +1,7 @@
-{
-  "He": {
-    "chance": 30,
-    "firstNames": [
+export const Prole = {
+  He: {
+    chance: 30,
+    firstNames: [
       "Ervin",
       "Leonardo",
       "Sigurður",
@@ -47,11 +47,11 @@
       "Travis",
       "Harlan"
     ],
-    "secondNames": [  ]
+    secondNames: [  ]
   },
-  "She": {
-    "chance": 30,
-    "firstNames": [
+  She: {
+    chance: 30,
+  firstNames: [
       "Laine",
       "Vladimíra",
       "Demeter",
@@ -76,11 +76,11 @@
       "Anđa",
       "Minakshi"
     ],
-    "secondNames": [  ]
+    secondNames: [  ]
   },
-  "They": {
-    "chance": 20,
-    "firstNames": [
+  They: {
+    chance: 20,
+    firstNames: [
       "Hadley",
       "Andie",
       "Remington",
@@ -97,7 +97,7 @@
       "Aubrey",
       "Sydney"
     ],
-    "secondNames": [
+    secondNames: [
       "Ye",
       "Kato",
       "Kerner",
@@ -123,19 +123,19 @@
       "Mayer"
     ]
   },
-  "Hey": {
-    "chance": 10,
-    "firstNames": [  ],
-    "secondNames": [  ]
+  Hey: {
+    chance: 10,
+    firstNames: [  ],
+    secondNames: [  ]
   },
-  "Shey": {
-    "chance": 10,
-    "firstNames": [  ],
-    "secondNames": [  ]
+  Shey: {
+    chance: 10,
+    firstNames: [  ],
+    secondNames: [  ]
   },
-  "It": {
-    "chance": 0,
-    "firstNames": [  ],
-    "secondNames": [  ]
+  It: {
+    chance: 0,
+    firstNames: [  ],
+    secondNames: [  ]
   }
 }

@@ -1,19 +1,17 @@
 {
 	"compilerOptions": {
 		"baseUrl": ".",
-		"inlineSourceMap": true,
-		"inlineSources": true,
-		"module": "node16",
+		// building
+		"module": "ES6",
+		// testing
+		// "module": "Node16",
 		"target": "ES6",
 		"allowJs": false,
 		"noImplicitAny": true,
-		"moduleResolution": "node16",
 		"importHelpers": false,
-		"isolatedModules": true,
-		"resolveJsonModule": true,
 		"esModuleInterop": true,
 		"strictNullChecks": true,
-		"lib": ["DOM", "ES5", "ES6", "ES7"]
+		"lib": ["DOM", "ES5", "ES6", "ES7"],
 	},
 	"include": ["**/*.ts"]
 }

@@ -1,4 +1,4 @@
-import CharacterGenerator from "./generator";
+import CharacterGenerator from "./generator.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     const generator = new CharacterGenerator();

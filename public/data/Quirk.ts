@@ -1,5 +1,5 @@
-{
-  "Entries": [
+export const Quirks = {
+  Entries: [
     "Has a silly hat.",
     "Obsessed with books.",
     "Non-verbal.",

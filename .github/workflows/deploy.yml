@@ -39,6 +39,8 @@ jobs:
         run: npm install tsc
       - name: compile typescript
         run: tsc
+      - name: check files
+        run: echo public/insert.js
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact

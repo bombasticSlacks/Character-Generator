@@ -1,5 +1,5 @@
-{
-  "Entries": [
+export const Demeanor = {
+  Entries: [
     "Insightful",
     "Cheerful",
     "Musing",
