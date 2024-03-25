@@ -4,7 +4,10 @@ import { Demeanor } from "./data/Demeanor.js";
 import { Goals } from "./data/Goal.js";
 import { Quirks } from "./data/Quirk.js";
 import { Appearance } from "./data/Appearance.js";
-
+import { Kaar } from "./data/Kaar.js";
+import { Envoy } from "./data/Envoy.js";
+import { IPC } from "./data/IPC.js";
+import { Unborn } from "./data/Unborn.js";
 interface PronounDetails {
   chance: number;
   firstNames: string[];
@@ -14,6 +17,18 @@ interface PronounDetails {
   eyes: string[];
 }
 
+interface PronounArrays {
+  firstNames: string[];
+  secondNames: string[];
+  hair: string[];
+  hairColour: string[];
+  eyes: string[];
+}
+
+interface WeightedCulture {
+  data: CultureData;
+  weight: number;
+}
 interface CultureData {
   He: PronounDetails;
   She: PronounDetails;
@@ -52,15 +67,19 @@ interface Character {
   appearance?: string;
 }
 
-const details = new Map<Culture, CultureData>();
+const details = new Map<Culture, WeightedCulture>();
 details.set(Culture.Prole, Prole);
+details.set(Culture.Kaar, Kaar);
+details.set(Culture.Envoy, Envoy);
+details.set(Culture.IPC, IPC);
+details.set(Culture.Unborn, Unborn);
 
 function getCultureData(culture: Culture): CultureData {
-  const data = details.get(culture);
-  if (!data) {
+  const cd = details.get(culture);
+  if (!cd) {
     throw new TypeError();
   }
-  return data;
+  return cd.data;
 }
 
 // Get a random value that are weighted from a hash map
@@ -83,6 +102,30 @@ function getRandomWeighted(values: Map<string, number>): string {
   }
 
   return value;
+}
+
+// Get the expected table, the fallback (they) or fallback to the prole info
+function getTable(
+  culture: Culture,
+  pronouns: Pronouns,
+  accessor: keyof PronounArrays
+): string[] {
+  const data = getCultureData(culture);
+  if (data[pronouns][accessor].length !== 0) {
+    return data[pronouns][accessor];
+  } else if (data[Pronouns.They][accessor].length !== 0) {
+    return data[Pronouns.They][accessor];
+  } else {
+    const proleData = getCultureData(Culture.Prole);
+    if (proleData[pronouns][accessor].length !== 0) {
+      return proleData[pronouns][accessor];
+    } else if (proleData[Pronouns.They][accessor].length !== 0) {
+      return proleData[Pronouns.They][accessor];
+    }
+  }
+
+  // somehow failed return nothing
+  return [];
 }
 
 // Get a random unweighted value from an array
@@ -137,7 +180,11 @@ export default class CharacterGenerator {
 
   // Create A Culture
   generateCulture(): Culture {
-    return Culture.Prole;
+    const selection = new Map<string, number>();
+    for (const value of details.entries()) {
+      selection.set(value[0], value[1].weight);
+    }
+    return getRandomWeighted(selection) as Culture;
   }
 
   // Create Pronouns
@@ -154,21 +201,8 @@ export default class CharacterGenerator {
   // Create A Name
   generateName(culture: Culture, pronouns: Pronouns): string {
     const data = getCultureData(culture);
-    let potentialFirstNames: string[] = [];
-    let potentialSecondNames: string[] = [];
-    if (data[pronouns].firstNames.length === 0) {
-      // if the array is empty default to they/them
-      potentialFirstNames = data.They.firstNames;
-    } else {
-      potentialFirstNames = data[pronouns].firstNames;
-    }
-
-    if (data[pronouns].secondNames.length === 0) {
-      // if the array is empty default to they/them
-      potentialSecondNames = data.They.secondNames;
-    } else {
-      potentialSecondNames = data[pronouns].secondNames;
-    }
+    let potentialFirstNames = getTable(culture, pronouns, "firstNames");
+    let potentialSecondNames = getTable(culture, pronouns, "secondNames");
 
     return `${getRandom(potentialFirstNames)} ${getRandom(
       potentialSecondNames
@@ -203,29 +237,9 @@ export default class CharacterGenerator {
     }
 
     const data = getCultureData(culture);
-    let potentialEyes: string[] = [];
-    let potentialHair: string[] = [];
-    let potentialHairColour: string[] = [];
-    if (data[pronouns].hair.length === 0) {
-      // if the array is empty default to they/them
-      potentialHair = data.They.hair;
-    } else {
-      potentialHair = data[pronouns].hair;
-    }
-
-    if (data[pronouns].hairColour.length === 0) {
-      // if the array is empty default to they/them
-      potentialHairColour = data.They.hairColour;
-    } else {
-      potentialHairColour = data[pronouns].hairColour;
-    }
-
-    if (data[pronouns].eyes.length === 0) {
-      // if the array is empty default to they/them
-      potentialEyes = data.They.eyes;
-    } else {
-      potentialEyes = data[pronouns].eyes;
-    }
+    let potentialEyes = getTable(culture, pronouns, "eyes");
+    let potentialHair = getTable(culture, pronouns, "hair");
+    let potentialHairColour = getTable(culture, pronouns, "hairColour");
 
     return `${getRandom(potentialHair)} ${getRandom(
       potentialHairColour

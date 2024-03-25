@@ -1,8 +1,8 @@
-export const Kaar = {
-  weight: 10,
+export const Name = {
+  weight: 50,
   data: {
     He: {
-      chance: 20,
+      chance: 30,
       firstNames: [],
       secondNames: [],
       hair: [],
@@ -10,7 +10,7 @@ export const Kaar = {
       hairColour: [],
     },
     She: {
-      chance: 5,
+      chance: 30,
       firstNames: [],
       secondNames: [],
       hair: [],
@@ -18,31 +18,15 @@ export const Kaar = {
       hairColour: [],
     },
     They: {
-      chance: 60,
-      firstNames: [
-        "Rolling",
-        "Screaming",
-        "Whistling",
-        "Dreaming",
-        "Fast",
-        "Sleeping",
-      ],
-      secondNames: [
-        "River",
-        "Valley",
-        "Mountain",
-        "Forest",
-        "Tree",
-        "Mushroom",
-        "Lake",
-        "Creek",
-      ],
-      hair: ["No"],
-      hairColour: [""],
-      eyes: ["Black"],
+      chance: 20,
+      firstNames: [],
+      secondNames: [],
+      hair: [],
+      hairColour: [],
+      eyes: [],
     },
     Hey: {
-      chance: 5,
+      chance: 10,
       firstNames: [],
       secondNames: [],
       hair: [],
@@ -50,7 +34,7 @@ export const Kaar = {
       hairColour: [],
     },
     Shey: {
-      chance: 5,
+      chance: 10,
       firstNames: [],
       secondNames: [],
       hair: [],
@@ -58,7 +42,7 @@ export const Kaar = {
       hairColour: [],
     },
     It: {
-      chance: 5,
+      chance: 0,
       firstNames: [],
       secondNames: [],
       hair: [],

@@ -1,8 +1,8 @@
-export const Kaar = {
+export const IPC = {
   weight: 10,
   data: {
     He: {
-      chance: 20,
+      chance: 5,
       firstNames: [],
       secondNames: [],
       hair: [],
@@ -19,27 +19,18 @@ export const Kaar = {
     },
     They: {
       chance: 60,
-      firstNames: [
-        "Rolling",
-        "Screaming",
-        "Whistling",
-        "Dreaming",
-        "Fast",
-        "Sleeping",
-      ],
-      secondNames: [
-        "River",
-        "Valley",
-        "Mountain",
-        "Forest",
-        "Tree",
-        "Mushroom",
-        "Lake",
-        "Creek",
-      ],
+      firstNames: ["J4M3S", "T4V", "K311", "M4X", "050", "111", "00"],
+      secondNames: [""],
       hair: ["No"],
       hairColour: [""],
-      eyes: ["Black"],
+      eyes: [
+        "Green on black",
+        "Pink on purple",
+        "Black on white",
+        "Green on white",
+        "Blue on white",
+        "Blue on black",
+      ],
     },
     Hey: {
       chance: 5,
@@ -58,7 +49,7 @@ export const Kaar = {
       hairColour: [],
     },
     It: {
-      chance: 5,
+      chance: 20,
       firstNames: [],
       secondNames: [],
       hair: [],
