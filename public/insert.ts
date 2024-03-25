@@ -24,6 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
       character.demeanor
     )} ${character.demeanor?.toLocaleLowerCase()} ${
       character.culture
-    }, who wants to ${character.goal?.toLocaleLowerCase()}, and ${character.quirk?.toLocaleLowerCase()}`;
+    }, with ${character.appearance?.toLocaleLowerCase()} who wants to ${character.goal?.toLocaleLowerCase()}, and ${character.quirk?.toLocaleLowerCase()}`;
   }
 });
