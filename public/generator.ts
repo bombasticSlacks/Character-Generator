@@ -104,8 +104,7 @@ function getRandomWeighted(values: Map<string, number>): string {
   return value;
 }
 
-// Get the expected table, the fallback (they) or fallback to the prole info
-function getTable(
+function getTableInternal(
   culture: Culture,
   pronouns: Pronouns,
   accessor: keyof PronounArrays
@@ -113,19 +112,24 @@ function getTable(
   const data = getCultureData(culture);
   if (data[pronouns][accessor].length !== 0) {
     return data[pronouns][accessor];
-  } else if (data[Pronouns.They][accessor].length !== 0) {
-    return data[Pronouns.They][accessor];
-  } else {
-    const proleData = getCultureData(Culture.Prole);
-    if (proleData[pronouns][accessor].length !== 0) {
-      return proleData[pronouns][accessor];
-    } else if (proleData[Pronouns.They][accessor].length !== 0) {
-      return proleData[Pronouns.They][accessor];
-    }
+  }
+  return data[Pronouns.They][accessor];
+}
+
+// Get the expected table, the fallback (they) or fallback to the prole info
+function getTable(
+  culture: Culture,
+  pronouns: Pronouns,
+  accessor: keyof PronounArrays
+): string[] {
+  let values = getTableInternal(culture, pronouns, accessor);
+  if (values.length === 0) {
+    // if we haven't found data fallback to Prole data
+    values = getTableInternal(Culture.Prole, pronouns, accessor);
   }
 
   // somehow failed return nothing
-  return [];
+  return values;
 }
 
 // Get a random unweighted value from an array
