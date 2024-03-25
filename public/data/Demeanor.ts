@@ -12,5 +12,7 @@ export const Demeanor = {
     "Pushy",
     "Rude",
     "Warm",
+    "Whispering",
+    "Brave",
   ],
 };

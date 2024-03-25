@@ -10,5 +10,13 @@ export const Quirks = {
     "Is great at cards",
     "Is a fan of board games",
     "Is obsessed with someone famous",
+    "Constantly moisturizes",
+    "Practices active listening",
+    "Always checks their watch",
+    "Is distracted by their device",
+    "Has a bonsai plant",
+    "Has a child",
+    "Carries an unexpected weapon",
+    "Is a local celebrity",
   ],
 };

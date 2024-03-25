@@ -45,13 +45,15 @@ export const Prole = {
       "Chandler",
       "Lefty",
       "Travis",
-      "Harlan"
+      "Harlan",
     ],
-    secondNames: [  ]
+    secondNames: [],
+    hair: [],
+    eyes: [],
   },
   She: {
     chance: 30,
-  firstNames: [
+    firstNames: [
       "Laine",
       "Vladimíra",
       "Demeter",
@@ -74,9 +76,11 @@ export const Prole = {
       "Maris",
       "Myra",
       "Anđa",
-      "Minakshi"
+      "Minakshi",
     ],
-    secondNames: [  ]
+    secondNames: [],
+    hair: [],
+    eyes: [],
   },
   They: {
     chance: 20,
@@ -95,7 +99,7 @@ export const Prole = {
       "Cortney",
       "Alex",
       "Aubrey",
-      "Sydney"
+      "Sydney",
     ],
     secondNames: [
       "Ye",
@@ -120,22 +124,39 @@ export const Prole = {
       "Shaw",
       "Hammond",
       "Lewin",
-      "Mayer"
-    ]
+      "Mayer",
+    ],
+    hair: [
+      "Short",
+      "Short Cropped",
+      "Bald",
+      "Long flowing",
+      "Bunned",
+      "Top Knot",
+      "Stubbled",
+      "Slicked back",
+    ],
+    eyes: ["Blue", "Brown", "Green"],
   },
   Hey: {
     chance: 10,
-    firstNames: [  ],
-    secondNames: [  ]
+    firstNames: [],
+    secondNames: [],
+    hair: [],
+    eyes: [],
   },
   Shey: {
     chance: 10,
-    firstNames: [  ],
-    secondNames: [  ]
+    firstNames: [],
+    secondNames: [],
+    hair: [],
+    eyes: [],
   },
   It: {
     chance: 0,
-    firstNames: [  ],
-    secondNames: [  ]
-  }
-}
+    firstNames: [],
+    secondNames: [],
+    hair: [],
+    eyes: [],
+  },
+};

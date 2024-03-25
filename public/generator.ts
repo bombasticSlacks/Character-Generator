@@ -3,14 +3,51 @@ import { Prole } from "./data/Prole.js";
 import { Demeanor } from "./data/Demeanor.js";
 import { Goals } from "./data/Goal.js";
 import { Quirks } from "./data/Quirk.js";
+import { Appearance } from "./data/Appearance.js";
 
 interface CultureData {
-  He: { chance: number; firstNames: string[]; secondNames: string[] };
-  She: { chance: number; firstNames: string[]; secondNames: string[] };
-  They: { chance: number; firstNames: string[]; secondNames: string[] };
-  Hey: { chance: number; firstNames: string[]; secondNames: string[] };
-  Shey: { chance: number; firstNames: string[]; secondNames: string[] };
-  It: { chance: number; firstNames: string[]; secondNames: string[] };
+  He: {
+    chance: number;
+    firstNames: string[];
+    secondNames: string[];
+    hair: string[];
+    eyes: string[];
+  };
+  She: {
+    chance: number;
+    firstNames: string[];
+    secondNames: string[];
+    hair: string[];
+    eyes: string[];
+  };
+  They: {
+    chance: number;
+    firstNames: string[];
+    secondNames: string[];
+    hair: string[];
+    eyes: string[];
+  };
+  Hey: {
+    chance: number;
+    firstNames: string[];
+    secondNames: string[];
+    hair: string[];
+    eyes: string[];
+  };
+  Shey: {
+    chance: number;
+    firstNames: string[];
+    secondNames: string[];
+    hair: string[];
+    eyes: string[];
+  };
+  It: {
+    chance: number;
+    firstNames: string[];
+    secondNames: string[];
+    hair: string[];
+    eyes: string[];
+  };
 }
 
 enum Culture {
@@ -39,6 +76,7 @@ interface Character {
   demeanor?: string;
   goal?: string;
   quirk?: string;
+  appearance?: string;
 }
 
 const details = new Map<Culture, CultureData>();
@@ -114,6 +152,12 @@ export default class CharacterGenerator {
     if (!character.quirk) {
       character.quirk = this.generateQuirk();
     }
+    if (!character.appearance) {
+      character.appearance = this.generateAppearance(
+        character.culture,
+        character.pronouns
+      );
+    }
 
     return character;
   }
@@ -171,6 +215,40 @@ export default class CharacterGenerator {
   // Create A Quirk
   generateQuirk(): string {
     return getRandom(Quirks.Entries);
+  }
+
+  // Create An Appearance
+  generateAppearance(culture: Culture, pronouns: Pronouns): string {
+    // get 1 to 3 appearance traits
+    let appearance = getRandom(Appearance.Entries);
+    let roll = Math.floor(Math.random() * 100);
+    if (roll < 20) {
+      appearance = `${appearance}, ${getRandom(Appearance.Entries)}`;
+    }
+    if (roll < 60) {
+      `${appearance}, ${getRandom(Appearance.Entries)}`;
+    }
+
+    const data = getCultureData(culture);
+    let potentialEyes: string[] = [];
+    let potentialHair: string[] = [];
+    if (data[pronouns].hair.length === 0) {
+      // if the array is empty default to they/them
+      potentialHair = data.They.hair;
+    } else {
+      potentialHair = data[pronouns].hair;
+    }
+
+    if (data[pronouns].eyes.length === 0) {
+      // if the array is empty default to they/them
+      potentialEyes = data.They.eyes;
+    } else {
+      potentialEyes = data[pronouns].eyes;
+    }
+
+    return `${getRandom(potentialHair)} hair, ${getRandom(
+      potentialEyes
+    )} eyes, ${appearance}`;
   }
 
   // Convert Pronoun Enum To Value
