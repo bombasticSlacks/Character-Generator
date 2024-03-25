@@ -172,4 +172,22 @@ export default class CharacterGenerator {
   generateQuirk(): string {
     return getRandom(Quirks.Entries);
   }
+
+  // Convert Pronoun Enum To Value
+  convertPronouns(pronoun: Pronouns): string {
+    switch (pronoun) {
+      case Pronouns.He:
+        return "He/Him";
+      case Pronouns.She:
+        return "She/Her";
+      case Pronouns.They:
+        return "They/Them";
+      case Pronouns.Hey:
+        return "He/They";
+      case Pronouns.Shey:
+        return "She/They";
+      case Pronouns.It:
+        return "It/Its";
+    }
+  }
 }
