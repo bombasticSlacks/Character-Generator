@@ -8,11 +8,11 @@ function anCheck(val?: string) {
   if (val) {
     const c = val.charAt(0).toLocaleLowerCase();
     if (c === "a" || c === "e" || c === "i" || c === "o" || c === "u") {
-      return "An";
+      return "an";
     }
   }
 
-  return "A";
+  return "a";
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -20,8 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
   if (p) {
     p.textContent = `${character.name} (${generator.convertPronouns(
       character.pronouns
-    )}) ${anCheck(character.demeanor)} ${character.demeanor} ${
+    )}) ${anCheck(
+      character.demeanor
+    )} ${character.demeanor?.toLocaleLowerCase()} ${
       character.culture
-    }, who wants to ${character.goal}, and ${character.quirk}`;
+    }, who wants to ${character.goal?.toLocaleLowerCase()}, and ${character.quirk?.toLocaleLowerCase()}`;
   }
 });
