@@ -174,7 +174,7 @@ export default class CharacterGenerator {
   }
 
   // Convert Pronoun Enum To Value
-  convertPronouns(pronoun: Pronouns): string {
+  convertPronouns(pronoun?: Pronouns): string {
     switch (pronoun) {
       case Pronouns.He:
         return "He/Him";
@@ -189,5 +189,7 @@ export default class CharacterGenerator {
       case Pronouns.It:
         return "It/Its";
     }
+
+    return "They/Them";
   }
 }
