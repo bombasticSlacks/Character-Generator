@@ -1,10 +1,7 @@
 {
 	"compilerOptions": {
 		"baseUrl": ".",
-		// building
 		"module": "ES6",
-		// testing
-		// "module": "Node16",
 		"target": "ES6",
 		"allowJs": false,
 		"noImplicitAny": true,
