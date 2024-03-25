@@ -22,6 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
       character.pronouns
     )}) ${anCheck(character.demeanor)} ${character.demeanor} ${
       character.culture
-    }, who wants to ${character.goal}, and is/has ${character.quirk}`;
+    }, who wants to ${character.goal}, and ${character.quirk}`;
   }
 });
