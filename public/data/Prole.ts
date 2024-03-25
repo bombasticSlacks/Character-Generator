@@ -50,6 +50,7 @@ export const Prole = {
     secondNames: [],
     hair: [],
     eyes: [],
+    hairColour: [],
   },
   She: {
     chance: 30,
@@ -81,6 +82,7 @@ export const Prole = {
     secondNames: [],
     hair: [],
     eyes: [],
+    hairColour: [],
   },
   They: {
     chance: 20,
@@ -136,6 +138,16 @@ export const Prole = {
       "Stubbled",
       "Slicked back",
     ],
+    hairColour: [
+      "Black",
+      "Blonde",
+      "Strawberry Blonde",
+      "Brown",
+      "Silver",
+      "Greying",
+      "Bleached",
+      "Red",
+    ],
     eyes: ["Blue", "Brown", "Green"],
   },
   Hey: {
@@ -144,6 +156,7 @@ export const Prole = {
     secondNames: [],
     hair: [],
     eyes: [],
+    hairColour: [],
   },
   Shey: {
     chance: 10,
@@ -151,6 +164,7 @@ export const Prole = {
     secondNames: [],
     hair: [],
     eyes: [],
+    hairColour: [],
   },
   It: {
     chance: 0,
@@ -158,5 +172,6 @@ export const Prole = {
     secondNames: [],
     hair: [],
     eyes: [],
+    hairColour: [],
   },
 };

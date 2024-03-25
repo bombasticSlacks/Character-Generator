@@ -5,49 +5,22 @@ import { Goals } from "./data/Goal.js";
 import { Quirks } from "./data/Quirk.js";
 import { Appearance } from "./data/Appearance.js";
 
+interface PronounDetails {
+  chance: number;
+  firstNames: string[];
+  secondNames: string[];
+  hair: string[];
+  hairColour: string[];
+  eyes: string[];
+}
+
 interface CultureData {
-  He: {
-    chance: number;
-    firstNames: string[];
-    secondNames: string[];
-    hair: string[];
-    eyes: string[];
-  };
-  She: {
-    chance: number;
-    firstNames: string[];
-    secondNames: string[];
-    hair: string[];
-    eyes: string[];
-  };
-  They: {
-    chance: number;
-    firstNames: string[];
-    secondNames: string[];
-    hair: string[];
-    eyes: string[];
-  };
-  Hey: {
-    chance: number;
-    firstNames: string[];
-    secondNames: string[];
-    hair: string[];
-    eyes: string[];
-  };
-  Shey: {
-    chance: number;
-    firstNames: string[];
-    secondNames: string[];
-    hair: string[];
-    eyes: string[];
-  };
-  It: {
-    chance: number;
-    firstNames: string[];
-    secondNames: string[];
-    hair: string[];
-    eyes: string[];
-  };
+  He: PronounDetails;
+  She: PronounDetails;
+  They: PronounDetails;
+  Hey: PronounDetails;
+  Shey: PronounDetails;
+  It: PronounDetails;
 }
 
 enum Culture {
@@ -232,11 +205,19 @@ export default class CharacterGenerator {
     const data = getCultureData(culture);
     let potentialEyes: string[] = [];
     let potentialHair: string[] = [];
+    let potentialHairColour: string[] = [];
     if (data[pronouns].hair.length === 0) {
       // if the array is empty default to they/them
       potentialHair = data.They.hair;
     } else {
       potentialHair = data[pronouns].hair;
+    }
+
+    if (data[pronouns].hairColour.length === 0) {
+      // if the array is empty default to they/them
+      potentialHairColour = data.They.hairColour;
+    } else {
+      potentialHairColour = data[pronouns].hairColour;
     }
 
     if (data[pronouns].eyes.length === 0) {
@@ -246,9 +227,9 @@ export default class CharacterGenerator {
       potentialEyes = data[pronouns].eyes;
     }
 
-    return `${getRandom(potentialHair)} hair, ${getRandom(
-      potentialEyes
-    )} eyes, ${appearance}`;
+    return `${getRandom(potentialHair)} ${getRandom(
+      potentialHairColour
+    )} hair, ${getRandom(potentialEyes)} eyes, ${appearance}`;
   }
 
   // Convert Pronoun Enum To Value
