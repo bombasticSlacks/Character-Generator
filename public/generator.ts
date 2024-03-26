@@ -240,7 +240,6 @@ export default class CharacterGenerator {
       `${appearance}, ${getRandom(Appearance.Entries)}`;
     }
 
-    const data = getCultureData(culture);
     let potentialEyes = getTable(culture, pronouns, "eyes");
     let potentialHair = getTable(culture, pronouns, "hair");
     let potentialHairColour = getTable(culture, pronouns, "hairColour");
