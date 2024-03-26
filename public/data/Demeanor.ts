@@ -14,5 +14,9 @@ export const Demeanor = {
     "Warm",
     "Whispering",
     "Brave",
+    "Soulless",
+    "Cold",
+    "Heartfelt",
+    "Distracted",
   ],
 };
